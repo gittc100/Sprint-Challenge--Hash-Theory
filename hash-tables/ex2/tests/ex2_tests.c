@@ -5,32 +5,25 @@
 char *test_short_case()
 {
   Ticket **tickets = malloc(3 * sizeof(Ticket *));
-
   Ticket *ticket_1 = malloc(sizeof(Ticket));
   ticket_1->source = "NONE";
   ticket_1->destination = "PDX";
   tickets[0] = ticket_1;
-
   Ticket *ticket_2 = malloc(sizeof(Ticket));
   ticket_2->source = "PDX";
   ticket_2->destination = "DCA";
   tickets[1] = ticket_2;
-
   Ticket *ticket_3 = malloc(sizeof(Ticket));
   ticket_3->source = "DCA";
   ticket_3->destination = "NONE";
   tickets[2] = ticket_3;
-
-  char *expected[] = { "PDX", "DCA", "NONE" };
-
+  char *expected[] = {"PDX", "DCA", "NONE"};
   mu_assert(check_string_arrays(reconstruct_trip(tickets, 3), expected, 3, 3), "Your function did not return the expected output");
-
-  for (int i = 0; i < 3; i++) {
+  for (int i = 0; i < 3; i++)
+  {
     free(tickets[i]);
   }
-
   free(tickets);
-
   return NULL;
 }
 
@@ -88,11 +81,12 @@ char *test_long_case()
   ticket_10->destination = "FLG";
   tickets[9] = ticket_10;
 
-  char *expected[] = { "LAX", "SFO", "BHM", "FLG", "XNA", "CID", "SLC", "PIT", "ORD", "NONE" };
+  char *expected[] = {"LAX", "SFO", "BHM", "FLG", "XNA", "CID", "SLC", "PIT", "ORD", "NONE"};
 
   mu_assert(check_string_arrays(reconstruct_trip(tickets, 10), expected, 10, 10), "Your function did not return the expected output");
 
-  for (int i = 0; i < 10; i++) {
+  for (int i = 0; i < 10; i++)
+  {
     free(tickets[i]);
   }
 
