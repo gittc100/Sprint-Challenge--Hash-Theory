@@ -20,6 +20,7 @@ char **reconstruct_trip(Ticket **tickets, int length)
     route[j] = value;
     key = value;
   }
+  destroy_hash_table(ht);
   return route;
 }
 

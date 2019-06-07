@@ -33,9 +33,11 @@ Answer *get_indices_of_item_weights(int *weights, int length, int limit)
       }
       printf("answer->index_1: %d\n", answer->index_1);
       printf("answer->index_2: %d\n", answer->index_2);
+      destroy_hash_table(ht);
       return answer;
     }
   }
+  destroy_hash_table(ht);
   return NULL;
 }
 
